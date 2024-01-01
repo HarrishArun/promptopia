@@ -26,6 +26,8 @@ const Feed = () => {
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState([]);
 
+  useEffect(() => {
+    
   const fetchPosts = async () => {
     const response = await fetch("/api/prompt");
     const data = await response.json();
@@ -33,7 +35,6 @@ const Feed = () => {
     setAllPosts(data);
   };
 
-  useEffect(() => {
     fetchPosts();
   }, []);
 
